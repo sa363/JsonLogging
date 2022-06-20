@@ -20,6 +20,7 @@
 package ru.itfb.jsonlogging.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -28,6 +29,7 @@ import javax.persistence.*;
 import java.util.UUID;
 
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -40,10 +42,8 @@ public class JsonData {
     private Long id;
     @Column(name = "uuid", nullable = false, unique = true)
     private UUID uuid;
+
     @Lob
     @Column(name = "json_data")
     private String jsonData;
-
-
-
 }

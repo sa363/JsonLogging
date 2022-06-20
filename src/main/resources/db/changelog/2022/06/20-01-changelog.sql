@@ -17,18 +17,18 @@
  *
  */
 
-package ru.itfb.jsonlogging;
+-- liquibase formatted sql
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+-- changeset Sergey:1655727571727-1
+CREATE TABLE json_data
+(
+    id        BIGINT AUTO_INCREMENT NOT NULL,
+    uuid      UUID NOT NULL,
+    json_data VARCHAR,
+    CONSTRAINT pk_json_data PRIMARY KEY (id)
+);
 
-@SpringBootApplication
-public class JsonLoggingApplication {
+-- changeset Sergey:1655727571727-2
+ALTER TABLE json_data
+    ADD CONSTRAINT uc_json_data_uuid UNIQUE (uuid);
 
-    public static void main(String[] args) {
-        SpringApplication.run(JsonLoggingApplication.class, args);
-    }
-
-
-
-}
